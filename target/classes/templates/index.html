@@ -1,1 +1,32 @@
-<h1>¡Hola! La tienda está funcionando.</h1>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>SHOP THE LION - Tienda Oficial</title>
+<link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+
+   <header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgaNLYnBBah5zZh4m1O6Pof8hCnobM_CJF2zy7zdwxA&s=10" class="logo" alt="Logo" />
+    <h1>SHOP THE LION</h1>
+</header>
+
+    <div class="container">
+        <div class="grid-productos">
+            <div class="tarjeta-producto" th:each="prod : ${productos}">
+                <div class="contenedor-imagen">
+                    <img th:src="${prod.imagenPrincipal}" alt="Imagen del producto" />
+                </div>
+                <div class="info-producto">
+                    <span class="categoria" th:text="${prod.categoria}">Categoría</span>
+                    <h2 class="nombre" th:text="${prod.nombre}">Nombre del Producto</h2>
+                    <p class="precio" th:text="'$' + ${prod.precio}">$0.00</p>
+                    <a href="#" class="btn-whatsapp">Pedir por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
